@@ -8,7 +8,8 @@
       href="https://fonts.googleapis.com/css?family=Nova Flat"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style_mediaqueries.css" />
+    <link rel="stylesheet" href="style_general.css" />
     <script src="" defer></script>
   </head>
   <body>
@@ -19,13 +20,11 @@
           <li><a href="#">Главная</a></li>
           <li><a href="#">Оставить мысль</a></li>
           <li><a href="#">История жанра</a></li>
-          <li>
-            <div class="toggle-switch">
-              <label>
-                <input type="checkbox" />
-                <span class="slider"></span>
-              </label>
-            </div>
+          <li class="switch">
+            <label class="switcher">
+              <input type="checkbox" class="switcher__input" />
+              <span class="switcher__slider"></span>
+            </label>
           </li>
         </ul>
       </nav>
