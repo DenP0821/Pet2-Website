@@ -3,7 +3,7 @@
 body {
   margin: 0; /* Сбрасываем внешние отступы */
   padding: 0; /* Сбрасываем внутренние отступы */
-  font-family: "Nova Flat", "Courier New", sans-serif; /* Текстовая палитра */
+  font-family: "Nova Flat", "Garamond", sans-serif; /* Текстовая палитра */
   color: #000; /* Основной цвет текста */
   background: #f5f5f5; /* Основной цвет фона */
   height: 100vh; /* Задает высоту приложению равной высоте области просмотра */
