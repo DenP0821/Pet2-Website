@@ -1,6 +1,8 @@
 // Выбор элементов в DOM-структуре
 const switchPseudoElement = document.getElementById("switch");
 const switchSlider = document.querySelector(".switcher__slider");
+const navList =
+  document.querySelector("a"); /* Доработка после создания всех страниц */
 
 // Дефолтный класс - псевдоэлемент переключателя
 switchPseudoElement.classList.add("switch-sun");
