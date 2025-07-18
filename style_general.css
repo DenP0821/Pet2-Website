@@ -1,94 +1,75 @@
 /* Общие стили */
 /* Тело сайта */
 body {
-  margin: 0;
-  /* Сбрасываем внешние отступы */
-  padding: 0;
-  /* Сбрасываем внутренние отступы */
-  height: 100vh;
-  /* Задает высоту приложению равной высоте области просмотра */
-  font-family: "Nova Flat", "Garamond", sans-serif;
-  /* Текстовая палитра */
-  font-size: 1.1rem;
-  /* Размер текста тела сайта */
-  font-style: italic;
-  /* Текст курсивом */
-  color: #000;
-  /* Основной цвет текста */
-  background: #f5f5f5;
-  /* Основной цвет фона */
+  margin: 0; /* Сбрасываем внешние отступы */
+  padding: 0; /* Сбрасываем внутренние отступы */
+  height: 100vh; /* Задает высоту приложению равной высоте области просмотра */
+  font-family: "Nova Flat", "Garamond", sans-serif; /* Текстовая палитра */
+  font-size: 1.1rem; /* Размер текста тела сайта */
+  font-style: italic; /* Текст курсивом */
+  color: #000; /* Основной цвет текста */
+  background: #f5f5f5; /* Основной цвет фона */
 }
 
 /* Для навигационной панели */
 nav {
-  background-color: rgba(38, 35, 56, 0.9);
-  /* Фон с прозрачностью */
-  box-shadow: 0 3px 20px rgba(40, 40, 40, 0.4);
-  /* Эффект размытия для нижней части нав.панели*/
+  background-color: rgba(38, 35, 56, 0.9); /* Фон с прозрачностью */
+  box-shadow: 0 3px 20px rgba(40, 40, 40, 0.4); /* Эффект размытия для нижней части нав.панели*/
 }
 
 nav ul {
-  list-style: none;
-  /* Удаление маркеров списка */
-  font-size: 1.4rem;
-  /* Размер текста списка */
+  list-style: none; /* Удаление маркеров списка */
+  font-size: 1.4rem; /* Размер текста списка */
 }
 
 h1,
 nav a {
-  color: #ffffff;
-  /* Цвет текста заголовка и элементов ссылки */
-  text-decoration: none;
-  /* Удаление подчеркивания элементов ссылки */
+  color: #ffffff; /* Цвет текста заголовка и элементов ссылки */
+  text-decoration: none; /* Удаление подчеркивания элементов ссылки */
 }
 
 .header-pic {
-  border-radius: 20px;
-  /* Скругление изображений */
+  border-radius: 20px; /* Скругление изображений */
 }
 
 .header-text {
-  padding: 1em;
-  /* Внутренние отступы со всех сторон для контейнера */
-  margin: 2%;
-  /* Внешние отступы со всех сторон для контейнера */
-  --bgColor: #f5f5f5;
-  /* Переменная - цвет фона */
-  --borderGradient: linear-gradient(to right, #bb2577, #3782ef);
-  /* Переменная - градиент */
-  width: fit-content;
-  /* Ширина контейнера, автоматически подстраивается под размер содержимого */
-  height: fit-content;
-  /* Высота контейнера, автоматически подстраивается под размер содержимого */
-  box-sizing: border-box;
-  /* Включает границы и отступы в общий размер элемента */
+  padding: 1em; /* Внутренние отступы со всех сторон для контейнера */
+  margin: 2%; /* Внешние отступы со всех сторон для контейнера */
+  --bgColor: #f5f5f5; /* Переменная - цвет фона */
+  --borderGradient: linear-gradient(
+    to right,
+    #bb2577,
+    #3782ef
+  ); /* Переменная - градиент */
+  width: fit-content; /* Ширина контейнера, автоматически подстраивается под размер содержимого */
+  height: fit-content; /* Высота контейнера, автоматически подстраивается под размер содержимого */
+  box-sizing: border-box; /* Включает границы и отступы в общий размер элемента */
   background: linear-gradient(var(--bgColor), var(--bgColor)) padding-box,
-    var(--borderGradient) border-box;
-  /* "Эффект рамки достигнут "наложением" псевдоградиента (padding-box - до внутреннего края границы элемента) на основной градиент (border-box - до внешнего края)  */
-  border: 4px solid transparent;
-  /* Прозрачная рамка-каркас */
-  border-radius: 10px;
-  /* Скругление рамки */
+    var(--borderGradient) border-box; /* "Эффект рамки достигнут "наложением" псевдоградиента (padding-box - до внутреннего края границы элемента) на основной градиент (border-box - до внешнего края)  */
+  border: 4px solid transparent; /* Прозрачная рамка-каркас */
+  border-radius: 10px; /* Скругление рамки */
 }
 
-/* ДОРАБОТКА! */
-.infinite-line {
-  width: 100%;
-  height: 150px;
-  overflow: hidden;
+.marquee {
+  width: 100%; /* Ширина контейнера для бегущей строки */
+  overflow: hidden; /* Всё, что выходит за пределы контейнера - обрезается */
+  white-space: nowrap; /* Предотвращает перенос изображений на новую строку */
 }
 
-.infinite-line div {
-  width: 400%;
-  animation: scroll-left 10s infinite linear;
+.marquee-content {
+  display: inline-block; /* Для отображения контента (изображений) в одну строку */
+  margin-top: 50px; /* Внешний отступ сверху для контента */
+  animation: marquee 10s infinite linear; /* Бесконечная линейная анимация для бегущей строки */
+  -webkit-animation: marquee 10s infinite linear; /* Анимация, совместимость для Safari, Chrome, Opera 15+ и т.д */
+  -ms-animation: marquee 10s infinite linear; /* Анимация, совместимость для Internet Explorer и старый Microsoft Edge 12–18 */
+  -moz-animation: marquee 10s infinite linear; /* Анимация, совместимость для Mozilla Firefox и других браузеров на движке Gecko */
 }
 
-@keyframes scroll-left {
+@keyframes marquee {
   0% {
-    transform: translateX(0);
+    transform: translateX(0.2%);
   }
-
   100% {
     transform: translateX(-100%);
   }
-}
+} /* Ключевые кадры анимации (смещение по оси X влево) */
