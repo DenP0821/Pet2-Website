@@ -60,15 +60,11 @@
   }
 
   .switcher__input:focus + .switcher__slider {
-    box-shadow: 0 0 4px rgb(96, 167, 240); /* Немного эффекта тени при фокусе на элемент */
+    box-shadow: 0 0 4px #60a7f0; /* Немного эффекта тени при фокусе на элемент */
   }
 
   .switcher__input:checked + .switcher__slider {
-    background-color: rgb(
-      96,
-      167,
-      240
-    ); /* Цвет при выборе флага элемента (check) */
+    background-color: #60a7f0; /* Цвет при выборе флага элемента (check) */
   }
 
   .switcher__input:checked + .switcher__slider::before {
@@ -83,7 +79,7 @@
 
   .switch-sun::after {
     content: ""; /* Для работы псевдоэлемента (добавляем только визуал) */
-    background-image: url("white-balance-sunny.svg"); /* Фоновое изображение - светлая тема */
+    background-image: url("/SVG/weather-sunny.svg"); /* Фоновое изображение - светлая тема */
     display: inline-block; /* Строчно-блочный тип отображения элемента */
     width: 29px; /* Ширина изображения */
     height: 29px; /* Высота изображения */
@@ -94,7 +90,7 @@
 
   .switch-moon::after {
     content: ""; /* Для работы псевдоэлемента (добавляем только визуал) */
-    background-image: url("weather-night.svg"); /* Фоновое изображение - тёмная тема*/
+    background-image: url("/SVG/weather-night.svg"); /* Фоновое изображение - тёмная тема*/
     display: inline-block; /* Строчно-блочный тип отображения элемента */
     width: 29px; /* Ширина изображения */
     height: 29px; /* Высота изображения */
@@ -104,15 +100,16 @@
   }
 
   .header-banner {
-    display: flex; /* Контейнер для заглавной картинки */
-    width: 100%; /* Ширина флекс-контейнера */
+    display: flex; /* Флекс-контейнер для баннера с изображениями */
+    max-width: 100%; /* Ширина флекс-контейнера */
     justify-content: space-around; /* Выравнивание элементов по горизонтали */
     flex-wrap: wrap; /* Перенос изображений при изменении размера экрана */
     margin: 3% 0; /* Внешние отступы сверху и снизу для контейнера */
   }
 
   .header-pic {
-    margin: 1% 0; /* Внешние отступы сверху и снизу для изображений (для wrap) */
+    margin: 1.5% 0; /* Внешние отступы сверху и снизу для изображений (для wrap) */
+    box-shadow: 0 0 8px rgba(40, 40, 40, 0.4); /* Эффект тени на границах изображений */
   }
 }
 

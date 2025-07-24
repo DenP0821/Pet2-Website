@@ -5,10 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock-Заметки</title>
+    <link rel="shortcut icon" href="/SVG/guitar.svg" />
     <link rel="stylesheet" href="style_general.css" />
     <link rel="stylesheet" href="style_mediaqueries.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css?family=Nova Flat"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Train+One&display=swap"
       rel="stylesheet"
     />
     <script src="script.js" defer></script>
@@ -26,7 +33,7 @@
           <li><a href="#">Заметочная</a></li>
         </ul>
         <!-- Переключатель светлая/тёмная тема -->
-        <div id="switch">
+        <div id="switch" class="switch-sun">
           <label class="switcher">
             <input type="checkbox" class="switcher__input" />
             <span class="switcher__slider"></span>
@@ -110,8 +117,45 @@
             <img src="/InfiniteLine/WHITESNAKE.png" alt="" />
           </div>
         </div>
+        <!-- Блок карточек с информацией о наиболее значимых и известных рок-коллективах -->
+        <div class="card-block">
+          <div class="card">
+            <img src="SVG/tongue.svg" alt="" aria-hidden="true" />
+            <img src="SVG/gramophone.svg" alt="" aria-hidden="true" />
+            <img src="SVG/zeppelin.svg" alt="" aria-hidden="true" />
+            <img src="SVG/radio.svg" alt="" aria-hidden="true" />
+            <h2 class="train-one-regular">The Beatles</h2>
+            <p>
+              Также группу называют «Ливерпульской четвёркой». Британская
+              рок-группа из Ливерпуля, основанная в 1960 году. В оригинальный
+              состав входили Джон Леннон, Пол Маккартни, Джордж Харрисон и Ринго
+              Старр.
+            </p>
+            <p>
+              Группа начала с подражания популярным звёздам американского
+              рок-н-ролла 1950-х годов, впоследствии придя к собственному
+              оригинальному стилю, сценическому образу и звучанию. The Beatles
+              оказали значительное влияние на рок-музыку и признаны одной из
+              наиболее успешных групп XX века, как в творческих, так и в
+              коммерческих достижениях. Многие известные рок-музыканты признают,
+              что стали таковыми под влиянием песен The Beatles. Журнал Rolling
+              Stone поставил группу на первое место в списке величайших
+              исполнителей всех времён.
+            </p>
+            <p>
+              The Beatles прекратили совместную работу в 1970 году, хотя уже по
+              меньшей мере с 1967 года Пол Маккартни и Джон Леннон вели
+              собственные проекты. После распада каждый из музыкантов продолжил
+              сольную карьеру.
+            </p>
+          </div>
+        </div>
       </section>
-      <section role="contentinfo"></section>
     </main>
+    <!-- "Подвал" страницы - нижняя часть -->
+    <footer>
+      <!-- Секция информации о создателе, контактные данные -->
+      <section role="contentinfo"></section>
+    </footer>
   </body>
 </html>
