@@ -96,7 +96,7 @@
 
   .switch-sun::after {
     content: ""; /* Для работы псевдоэлемента (добавляем только визуал) */
-    background-image: url("/SVG/weather-sunny.svg"); /* Фоновое изображение - светлая тема */
+    background-image: url("weather-sunny.svg"); /* Фоновое изображение - светлая тема */
     display: inline-block; /* Строчно-блочный тип отображения элемента */
     width: 29px; /* Ширина изображения */
     height: 29px; /* Высота изображения */
@@ -107,7 +107,7 @@
 
   .switch-moon::after {
     content: ""; /* Для работы псевдоэлемента (добавляем только визуал) */
-    background-image: url("/SVG/weather-night.svg"); /* Фоновое изображение - тёмная тема*/
+    background-image: url("weather-night.svg"); /* Фоновое изображение - тёмная тема*/
     display: inline-block; /* Строчно-блочный тип отображения элемента */
     width: 29px; /* Ширина изображения */
     height: 29px; /* Высота изображения */
