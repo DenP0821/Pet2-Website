@@ -1,4 +1,4 @@
-/* Общие стили */
+/* Общие стили - Основная страница (index.html) */
 
 /* Основная цветовая палитра - светлая тема */
 :root {
@@ -21,8 +21,7 @@ body {
   margin: 0; /* Сбрасываем внешние отступы */
   padding: 0; /* Сбрасываем внутренние отступы */
   height: 100vh; /* Задает высоту приложению равной высоте области просмотра */
-  font-family: "Nova Flat", "Garamond", serif; /* Текстовая палитра */
-  font-size: 1.1rem; /* Размер текста тела сайта */
+  font-family: "Comfortaa", sans-serif; /* Текстовая палитра */
   color: var(--color-text); /* Основной цвет текста */
   background: var(--color-bg); /* Основной цвет фона */
 }
@@ -33,9 +32,9 @@ nav {
   box-shadow: 0 3px 20px rgba(40, 40, 40, 0.4); /* Эффект размытия для нижней части нав.панели */
 }
 
-nav ul {
+nav li {
   list-style: none; /* Удаление маркеров списка */
-  font-size: 1.4rem; /* Размер текста списка */
+  font-size: 1rem; /* Размер шрифта элементов списка */
 }
 
 h1,
@@ -47,6 +46,21 @@ nav a {
 .header-pic {
   border-radius: 20px; /* Скругление изображений */
   box-shadow: 0 0 8px rgba(40, 40, 40, 0.4); /* Эффект тени на границах изображений */
+}
+
+.header-text {
+  --border-gradient: linear-gradient(
+    to right,
+    #bb2577,
+    #3782ef
+  ); /* Переменная - градиент */
+  max-width: fit-content; /* Ширина контейнера, автоматически подстраивается под размер содержимого */
+  max-height: fit-content; /* Высота контейнера, автоматически подстраивается под размер содержимого */
+  box-sizing: border-box; /* Включает границы и отступы в общий размер элемента */
+  background: linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
+    var(--border-gradient) border-box; /* "Эффект рамки достигнут "наложением" псевдоградиента (padding-box - до внутреннего края границы элемента) на основной градиент (border-box - до внешнего края)  */
+  border: 4px solid transparent; /* Прозрачная рамка-каркас */
+  box-shadow: 0 0 8px rgba(40, 40, 40, 0.4); /* Эффект тени на границах контейнера */
 }
 
 .marquee {
@@ -124,7 +138,7 @@ nav a {
   border-top-right-radius: 20px; /* Cкругление верхнего правого угла контейнера */
   background-color: var(--color-navfoot); /* Фоновый цвет футера */
   box-shadow: 0 3px 20px rgba(40, 40, 40, 0.4); /* Эффект размытия для верхней части футера */
-  font-size: 1.5rem; /* Размер шрифта для всего контейнера */
+  font-size: 1.2rem; /* Размер шрифта для всего контейнера */
   color: #fff; /* Цвет текста */
   line-height: 2rem; /* Расстояние между строками */
 }
@@ -152,4 +166,38 @@ nav a {
 .show-element {
   opacity: 1; /* Появление элементов на странице */
   transition: all 1.5s; /* Задаём плавность появления */
+}
+
+/* Общие стили - Страница с историей рок-музыки (history.html) */
+
+.history-container {
+  width: 60%; /* Ширина контейнера с информацией */
+  height: fit-content; /* Высота контейнера (по контенту) */
+  color: var(--color-text); /* Цвет текста */
+  background-color: var(--color-card); /* Цвет фона контейнера */
+  border: 1px solid transparent; /* Рамка контейнера (прозрачная) */
+  box-shadow: 0 0 8px rgba(40, 40, 40, 0.4); /* Эффект тени на границе контейнера */
+}
+
+.history-header__h2 {
+  text-align: center; /* Центрирование текста заголовков */
+  color: var(--color-text); /* Цвет текста заголовков */
+}
+
+.history-text {
+  margin: 0; /* Убраны отступы между абзацами */
+}
+
+.history-img {
+  display: block; /* Блочное представление изображений */
+  max-width: 70%; /* Максимальная ширина изображений */
+  max-height: 70%; /* Максимальная высота */
+  aspect-ratio: 16/9; /* Соотношение сторон изображения */
+  object-fit: cover; /* Сохраняем соотношение сторон */
+  overflow: hidden; /* Защита от переполнения */
+  box-shadow: 0 0 8px rgba(40, 40, 40, 0.4); /* Эффект тени на границах изображений */
+}
+
+.history-header__h3 {
+  font-style: italic; /* Текст подзаголовков курсивом */
 }
