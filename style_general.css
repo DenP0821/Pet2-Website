@@ -6,6 +6,7 @@
   --color-text: #000;
   --color-navfoot: #262338;
   --color-card: #f5f5f5;
+  --color-notesbutton: #0000e0;
 }
 
 /* Основная цветовая палитра - тёмная тема */
@@ -14,6 +15,7 @@
   --color-text: #fff;
   --color-navfoot: #434347;
   --color-card: #434347;
+  --color-notesbutton: #47d4ff;
 }
 
 /* Тело сайта */
@@ -61,6 +63,7 @@ nav a {
     var(--border-gradient) border-box; /* "Эффект рамки достигнут "наложением" псевдоградиента (padding-box - до внутреннего края границы элемента) на основной градиент (border-box - до внешнего края)  */
   border: 4px solid transparent; /* Прозрачная рамка-каркас */
   box-shadow: 0 0 8px rgba(40, 40, 40, 0.4); /* Эффект тени на границах контейнера */
+  line-height: 2rem; /* Расстояние между строками */
 }
 
 .marquee {
@@ -91,6 +94,10 @@ nav a {
   filter: invert(
     1
   ); /* Инвертирование цвета PNG-изображений в бегущей строке для тёмной темы */
+}
+
+.card {
+  background-color: var(--color-card); /* Цвет фона корточек */
 }
 
 .grid-container__img {
@@ -200,4 +207,95 @@ nav a {
 
 .history-header__h3 {
   font-style: italic; /* Текст подзаголовков курсивом */
+}
+
+/* Общие стили - Страница с заметками (notes.html) */
+
+.notes-container {
+  height: fit-content; /* Высота контейнера (по контенту) */
+  display: flex; /* Флекс-контейнер */
+  flex-direction: column; /* Расположение элементов - в колонку */
+}
+
+.decorate-notes__header {
+  text-align: center; /* Центрирование заголовка */
+  color: var(--color-text); /* Цвет текста заголовка */
+  margin-top: 0; /* Отступ сверху убран */
+}
+
+.decorate-notes__input {
+  font-family: "Comfortaa", sans-serif; /* Текстовая палитра элемента ввода (инпут)*/
+  background-color: #d5d5e0; /* Фоновый цвет инпута */
+  border: none; /* Скрытие рамки инпута */
+  box-shadow: 0 0 4px rgba(213, 213, 224, 0.4); /* Эффект тени на границах инпута */
+}
+
+.decorate-notes__input:focus {
+  box-shadow: 0 0 8px #4799eb; /* Немного эффекта тени при фокусе на элемент */
+  outline: none; /* Скрытие рамки инпута при фокусе */
+}
+
+.decorate-notes__button {
+  font-family: "Comfortaa", sans-serif; /* Текстовая палитра кнопки*/
+  color: var(--color-notesbutton); /* Цвет текста */
+  background-color: var(--color-bg); /* Цвет фона */
+  border: 2px solid var(--color-notesbutton); /* Границы кнопки + цвет */
+  cursor: pointer; /* Курсор при наведении - рука*/
+}
+
+.decorate-notes__button:active {
+  opacity: 0.8; /* Для эффекта нажатия кнопки */
+  transform: scale(0.98); /* Для эффекта нажатия кнопки */
+}
+
+.decorate-notes__ul {
+  margin: 0; /* Обнуление внешних отступов списка */
+  padding: 0; /* Обнуление внутренних отступов */
+  list-style: none; /* Удаление маркеров списка */
+  background-color: #d5d5e0; /* Фоновый цвет */
+  color: #000; /* Цвет текста */
+}
+
+.decorate-notes__li {
+  box-shadow: inset 0 -2px 0 var(--color-bg); /* Эффект разделения элементов списка */
+  display: flex; /* Флекс-контейнер */
+  justify-content: space-between; /* Распределение элементов по краям контейнера */
+}
+
+.decorate-notes__lielm1 {
+  overflow-wrap: break-word; /* Длинные слова переходят на новую строку, если они не помещаются в контейнер */
+  word-break: break-all; /* Строгий перенос слов (доп.защита от переполенния) */
+}
+
+.decorate-notes__lielm2 {
+  white-space: nowrap; /* Предотвращает перенос на новую строку (так как это кнопки) */
+}
+
+.decorate-notes__check {
+  color: #fff; /* Цвет знака внутри кнопки */
+  background-color: #007e33; /* Фон кнопки */
+  cursor: pointer; /* Курсор при наведении - рука*/
+}
+
+.decorate-notes__delete {
+  color: #fff; /* Цвет знака внутри кнопки */
+  background-color: #cc0000; /* Фон кнопки */
+  cursor: pointer; /* Курсор при наведении - рука*/
+}
+
+.decorate-notes__check:hover {
+  background-color: #00c851; /* Фон кнопки при наведении курсора */
+}
+
+.decorate-notes__delete:hover {
+  background-color: #ff4444; /* Фон кнопки при наведении курсора */
+}
+
+.decorate-notes__check:active,
+.decorate-notes__delete:active {
+  opacity: 0.7; /* Для эффекта нажатия кнопки */
+  user-select: none; /* Предотвращает выделение элементов кнопки */
+  -webkit-user-select: none; /* Совместимость для Safari, Chrome, Opera 15+ и т.д */
+  -ms-user-select: none; /* Совместимость для Internet Explorer и старый Microsoft Edge 12–18 */
+  -moz-user-select: none; /* Совместимость для Mozilla Firefox и других браузеров на движке Gecko */
 }

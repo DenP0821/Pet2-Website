@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+  <!-- Метатеги, заголовок страницы, подключаемые стили и скрипты -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock-Заметки</title>
+    <link rel="shortcut icon" href="guitar.svg" />
+    <link rel="stylesheet" type="text/css" href="style_general.css" />
+    <link rel="stylesheet" type="text/css" href="style_mediaqueries.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Train+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script-darkmode.js" defer></script>
+    <script src="script-notes.js" defer></script>
+  </head>
+  <!-- Тело страницы -->
+  <body>
+    <!-- Заглавная часть страницы -->
+    <header>
+      <!-- Навигационная панель -->
+      <nav role="navigation">
+        <h1><a href="index.html">Rock-Заметки</a></h1>
+        <ul>
+          <li><a href="history.html">История</a></li>
+          <li><a href="notes.html">Заметочная</a></li>
+          <li><a href="#">Авторизация</a></li>
+        </ul>
+        <!-- Переключатель светлая/тёмная тема -->
+        <div id="switch" class="switch-sun">
+          <label class="switcher">
+            <input type="checkbox" class="switcher__input" />
+            <span class="switcher__slider"></span>
+          </label>
+        </div>
+      </nav>
+    </header>
+    <!-- Основная часть страницы -->
+    <main>
+      <!-- Основная секция страницы -->
+      <section role="main">
+        <div class="notes-container">
+          <h1 class="notes-item decorate-notes__header">Заметки</h1>
+          <input
+            type="text"
+            class="notes-item decorate-notes__input"
+            placeholder="Написать заметку"
+            id="title"
+          />
+          <button class="notes-item decorate-notes__button" id="create">
+            Добавить заметку
+          </button>
+          <ul class="notes-item decorate-notes__ul" id="list">
+            <li class="decorate-notes__li">
+              <span class="decorate-notes__lielm1">Заметка</span>
+              <span class="decorate-notes__lielm2">
+                <span class="decorate-notes__check">&check;</span>
+                <span class="decorate-notes__delete">&times;</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- Кнопка "прокрутки" страницы вверх -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="64"
+        height="64"
+        fill="currentColor"
+        class="bi bi-arrow-up-circle-fill to-top"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"
+        />
+      </svg>
+    </main>
+  </body>
+</html>
