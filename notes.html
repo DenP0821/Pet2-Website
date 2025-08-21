@@ -51,26 +51,20 @@
       <!-- Основная секция страницы -->
       <section role="main">
         <div class="notes-container">
-          <h1 class="notes-item decorate-notes__header">Заметки</h1>
+          <h1 class="decorate-notes__header">Заметки</h1>
           <input
             type="text"
-            class="notes-item decorate-notes__input"
+            class="decorate-notes__input"
             placeholder="Написать заметку"
-            id="title"
+            id="input"
           />
-          <button class="notes-item decorate-notes__button" id="create">
+          <button class="decorate-notes__button" id="create">
             Добавить заметку
           </button>
-          <ul class="notes-item decorate-notes__ul" id="list">
-            <li class="decorate-notes__li">
-              <span class="decorate-notes__lielm1">Заметка</span>
-              <span class="decorate-notes__lielm2">
-                <span class="decorate-notes__check">&check;</span>
-                <span class="decorate-notes__delete">&times;</span>
-              </span>
-            </li>
-          </ul>
+          <ul class="decorate-notes__ul" id="list"></ul>
         </div>
+        <div class="custom-alert__empty">Введите текст</div>
+        <div class="custom-alert__space">Уберите пробелы в начале строки</div>
       </section>
       <!-- Кнопка "прокрутки" страницы вверх -->
       <svg
