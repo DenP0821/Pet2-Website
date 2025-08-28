@@ -1,4 +1,4 @@
-/* Общие стили - Основная страница (index.html) */
+/* Общие стили - Главная страница (index.html) */
 
 /* Основная цветовая палитра - светлая тема */
 :root {
@@ -64,6 +64,7 @@ nav a {
   border: 4px solid transparent; /* Прозрачная рамка-каркас */
   box-shadow: 0 0 8px rgba(40, 40, 40, 0.4); /* Эффект тени на границах контейнера */
   line-height: 2rem; /* Расстояние между строками */
+  text-align: center; /* Текст по центру контейнера */
 }
 
 .marquee {
@@ -211,7 +212,7 @@ nav a {
 
 /* Общие стили - Страница с заметками (notes.html) */
 
-body {
+.notes-body {
   position: relative; /* Относительное позиционирование */
 }
 
@@ -270,7 +271,7 @@ body {
 }
 
 .decorate-notes__ul li::before {
-  content: ""; /* Необходимо для корректной работы позиционирования */
+  content: ""; /* Необходимо для корректной работы псевдоэлемента */
   position: absolute; /* Абсолютное позиционирование */
   border: 1px solid #000; /* Границы элемента */
   border-radius: 50%; /* Скругление границы (круг) */
@@ -311,7 +312,6 @@ body {
 }
 
 .custom-alert__empty {
-  content: ""; /* Необходимо для корректной работы позиционирования */
   position: absolute; /* Абсолютное позиционирование */
   color: #fff; /* Цвет текста предупреждения (баннер) */
   background-color: #be1919; /* Цвет фона баннера */
@@ -319,9 +319,123 @@ body {
 }
 
 .custom-alert__space {
-  content: ""; /* Необходимо для корректной работы позиционирования */
   position: absolute; /* Абсолютное позиционирование */
   color: #fff; /* Цвет текста предупреждения (баннер) */
   background-color: #be1919; /* Цвет фона баннера */
   display: none; /* По умолчанию - баннер скрыт */
+}
+
+/* Общие стили - Авторизация (authorization.html) */
+
+.auth-body {
+  width: 100%; /* Ширина body */
+  height: 100%; /* Высота body */
+  margin: 0; /* Обнуление внешних отступов */
+  padding: 0; /* Обнуление внутренних отступов */
+  color: #fff; /* Основной цвет текста */
+  background: url("auth-background.jpg") center; /* Фоновое изображение */
+  box-sizing: border-box; /* Включает границы и отступы в общий размер элемента */
+}
+
+.auth-container {
+  display: grid; /* Создание грид-контейнера */
+  width: 100%; /* Ширина контейнера */
+  grid-template-areas:
+    "a"
+    "b"; /* Шаблон грид-областей */
+}
+
+.item1 {
+  grid-area: a; /* Грид-область */
+  align-self: center; /* Выравнивание элемента по-вертикали */
+}
+
+.item2 {
+  grid-area: b; /* Грид-область */
+  place-self: center; /* Центрирование элемента в двух плосткостях (шорткат) */
+}
+
+.item1 span {
+  display: inline-block; /* Для применения backdrop-filter */
+  backdrop-filter: blur(10px); /* Размытие фона окна ссылки */
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1)
+  ); /* Сочетание с backdrop-filter для лучшего эффекта (прозрачность) */
+}
+
+.auth-nav {
+  position: relative; /* Отностительное позиционирование */
+}
+
+.auth-nav img {
+  position: absolute; /* Абсолютное позиционирование */
+}
+
+.auth-nav a {
+  color: #fff; /* Цвет текста ссылки */
+  text-decoration: none; /* Удаление подчеркивания ссылки */
+}
+
+.auth-box {
+  backdrop-filter: blur(8px); /* Размытие фона окна авторизации */
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1)
+  ); /* Сочетание с backdrop-filter для лучшего эффекта (прозрачность) */
+}
+
+.auth-header {
+  text-align: center; /* Центрирование текста */
+}
+
+.auth-checkbox {
+  position: relative; /* Отностительное позиционирование */
+}
+
+.auth-checkbox input {
+  position: absolute; /* Абсолютное позиционирование */
+}
+
+.auth-input,
+.auth-button {
+  width: 100%; /* Ширина инпутов и кнопки */
+  outline: none; /* Скрытие рамки инпутов при активном состоянии */
+  color: #fff; /* Цвет текста */
+  font-family: "Comfortaa", sans-serif; /* Текстовая палитра элементов*/
+  box-sizing: border-box; /* Включает границы и отступы в общий размер элемента */
+}
+
+.auth-input {
+  backdrop-filter: blur(10px); /* Размытие фона инпутов */
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1)
+  ); /* Сочетание с backdrop-filter для лучшего эффекта (прозрачность) */
+}
+
+.auth-input::placeholder {
+  color: #fff; /* Цвет текста плейсхолдера внутри инпута */
+  opacity: 0.6; /* Прозрачность для лучшего эффекта */
+}
+
+.checkbox-input {
+  accent-color: #cccccc; /* Цвет чекбокса при выполнении */
+}
+
+.auth-button {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.5)
+  ); /* Слегка прозрачная кнопка входа */
+  border: none; /* Скрытие границ кнопки */
+}
+
+.alert__wrong-login,
+.alert__wrong-password {
+  display: none; /* По умолчанию - баннеры скрыты */
 }

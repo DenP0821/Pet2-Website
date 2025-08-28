@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+  <!-- Метатеги, заголовок страницы, подключаемые стили и скрипты -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock-Заметки</title>
+    <link rel="shortcut icon" href="guitar.svg" />
+    <link rel="stylesheet" type="text/css" href="style_general.css" />
+    <link rel="stylesheet" type="text/css" href="style_mediaqueries.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script-authorization.js" defer></script>
+  </head>
+  <!-- Тело страницы -->
+  <body class="auth-body">
+    <!-- Основная часть страницы -->
+    <main>
+      <!-- Основная секция страницы -->
+      <section role="main" class="auth-container">
+        <!-- Навигационная ссылка -->
+        <div role="navigation" class="item1">
+          <span class="auth-nav">
+            <img src="left-arrow.svg" alt="" aria-hidden="true" />
+            <a href="index.html">На главную страницу</a>
+          </span>
+        </div>
+        <!-- Окно авторизации -->
+        <div class="auth-box item2">
+          <h1 class="auth-header">Rock-Заметки</h1>
+          <p class="auth-paragraph1">
+            Введите логин и пароль предоставленный администратором
+          </p>
+          <p class="auth-paragraph2">Логин</p>
+          <input type="text" placeholder="Введите логин" class="auth-input" />
+          <p class="auth-paragraph2">Пароль</p>
+          <input
+            type="password"
+            placeholder="Введите пароль"
+            class="auth-input"
+          />
+          <div class="auth-checkbox">
+            <input type="checkbox" class="checkbox-input" />
+            <p class="auth-paragraph3">Запомнить меня</p>
+          </div>
+          <button class="auth-button">Вход</button>
+        </div>
+        <!-- Всплывающие окна (алармы) -->
+        <div class="custom-alert__empty">Введите текст</div>
+        <div class="custom-alert__space">Уберите пробелы в начале строки</div>
+        <div class="alert__wrong-login">Неверный логин</div>
+        <div class="alert__wrong-password">Неверный пароль</div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -2,7 +2,7 @@
 
 /* Большие экраны (Ноутбуки, ПК) */
 @media screen and (width >= 1025px) {
-  /* Cтили - Основная страница (index.html) */
+  /* Cтили - Главная страница (index.html) */
 
   nav {
     display: flex; /* Расположение в ряд - контейнер нав.панели */
@@ -267,6 +267,92 @@
     left: 10px; /* Позиционирование баннера по горизонтали */
     padding: 28px 164.5px; /* Отступы для формирования окна баннера */
     border-radius: 20px; /* Скругление углов баннера */
+  }
+
+  /* Стили - Авторизация (authorization.html) */
+
+  .auth-container {
+    height: 100vh; /* Высота контейнера (вьюпорт) */
+    grid-template-columns: 1fr; /* Грид-колонки */
+    grid-template-rows: 100px 1fr; /* Грид-строки */
+  }
+
+  .item1 {
+    margin-left: 20px; /* Отступ слева */
+  }
+
+  .item2 {
+    margin-top: -100px; /* Дополнительная калибровка по-вертикали */
+    width: 400px; /* Ширина окна авторизаций */
+  }
+
+  .item1 span {
+    padding: 23px 15px 23px 50px; /* Создание окна ссылки */
+    border-radius: 10px; /* Скругление углов */
+    font-size: 1.2rem; /* Размер шрифта */
+  }
+
+  .auth-nav img {
+    top: 17px; /* Положение SVG по-вертикали */
+    left: 13px; /* Положение SVG по-горизонтали */
+  }
+
+  .auth-box {
+    padding: 20px 50px; /* Внутренние отступы окна */
+    border-radius: 20px; /* Скругление углов */
+  }
+
+  .auth-header {
+    font-size: 2.5rem; /* Размер текста заголовка окна */
+  }
+
+  .auth-paragraph1 {
+    margin-top: 50px; /* Отступ сверху для параграфа */
+    line-height: 1.8rem; /* Расстояние между строками */
+  }
+
+  .auth-paragraph2 {
+    margin: 30px auto 10px auto; /* Отступы для параграфа */
+    font-size: 1.1rem; /* Размер текста параграфа */
+  }
+
+  .auth-paragraph3 {
+    margin: 25px auto 50px auto; /* Отступы для параграфа */
+  }
+
+  .auth-checkbox input {
+    top: -3px; /* Положение чекбокса по-вертикали */
+    left: -3px; /* Положение чекбокса по-горизонтали */
+  }
+
+  .auth-checkbox p {
+    margin-left: 30px; /* Отступ слева для надписи чекбокса */
+  }
+
+  .auth-input,
+  .auth-button {
+    height: 50px; /* Высота инпутов и кнопки */
+    font-size: 1.2rem; /* Размер текста */
+    border-radius: 8px; /* Скругление границ элементов */
+  }
+
+  .auth-input {
+    border: 2px solid #ffffff98; /* Толщина и цвет рамок инпутов */
+    padding-left: 15px; /* Отступ слева (текст внутри инпута) */
+    padding-right: 15px; /* Отступ справа (текст внутри инпута) */
+  }
+
+  .auth-input::placeholder {
+    font-size: 1rem; /* Размер текста */
+  }
+
+  .checkbox-input {
+    width: 16px; /* Ширина чекбокса */
+    height: 16px; /* Высота чекбокса */
+  }
+
+  .auth-button {
+    margin-bottom: 35px; /* Отступ снизу */
   }
 }
 
