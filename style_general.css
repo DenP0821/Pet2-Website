@@ -28,15 +28,14 @@ body {
   background: var(--color-bg); /* Основной цвет фона */
 }
 
-/* Для навигационной панели */
 nav {
+  width: 100%; /* Ширина флекс-контейнера */
   background-color: var(--color-navfoot); /* Цвет фона навигационной панели */
   box-shadow: 0 3px 20px rgba(40, 40, 40, 0.4); /* Эффект размытия для нижней части нав.панели */
 }
 
 nav li {
   list-style: none; /* Удаление маркеров списка */
-  font-size: 1rem; /* Размер шрифта элементов списка */
 }
 
 h1,
@@ -45,8 +44,64 @@ nav a {
   text-decoration: none; /* Удаление подчеркивания элементов ссылки */
 }
 
+.switcher {
+  display: inline-block; /* Строчно-блочный тип отображения (контейнер переключателя) */
+  position: relative; /* Относительное позиционирование контейнера */
+}
+
+.switcher__input {
+  width: 0; /* Скрытие чекбокса */
+  height: 0; /* Скрытие чекбокса */
+  opacity: 0; /* Скрытие чекбокса */
+}
+
+.switcher__slider {
+  position: absolute; /* Абсолютное позиционирование элемента слайдера (подложка) */
+  cursor: pointer; /* Курсор при наведении - рука */
+  top: 0; /* Растягивание элемента слайдера */
+  left: 0; /* Растягивание элемента слайдера */
+  right: 0; /* Растягивание элемента слайдера */
+  bottom: 0; /* Растягивание элемента слайдера */
+  background-color: #ffd546; /* Цвет элемента слайдера */
+  transition: 0.4s; /* Плавность перемещения ползунка */
+}
+
+.switcher__slider::before {
+  content: ""; /* Для работы псевдоэлемента (добавляем только визуал) */
+  position: absolute; /* Абсолютное позиционирование ползунка */
+  cursor: pointer; /* Курсор при наведении - рука (ползунок)*/
+  border-radius: 50%; /* Скругление ползунка (круг) */
+  background-color: #000; /* Цвет ползунка */
+  transition: 0.4s; /* Плавность перемещения ползунка */
+}
+
+.switcher__input:focus + .switcher__slider {
+  box-shadow: 0 0 4px #60a7f0; /* Немного эффекта тени при фокусе на элемент */
+}
+
+.switcher__input:checked + .switcher__slider {
+  background-color: #60a7f0; /* Цвет при выборе флага элемента (check) */
+}
+
+.switch-sun::after {
+  content: ""; /* Для работы псевдоэлемента (добавляем только визуал) */
+  background-image: url("weather-sunny.svg"); /* Фоновое изображение - светлая тема */
+  display: inline-block; /* Строчно-блочный тип отображения элемента */
+  position: absolute; /* Абсолютное позиционирование элемента изображения */
+}
+
+.switch-moon::after {
+  content: ""; /* Для работы псевдоэлемента (добавляем только визуал) */
+  background-image: url("weather-night.svg"); /* Фоновое изображение - тёмная тема*/
+  display: inline-block; /* Строчно-блочный тип отображения элемента */
+  position: absolute; /* Абсолютное позиционирование элемента изображения */
+}
+
+.header-banner {
+  max-width: 100%; /* Ширина флекс-контейнера */
+}
+
 .header-pic {
-  border-radius: 20px; /* Скругление изображений */
   box-shadow: 0 0 8px rgba(40, 40, 40, 0.4); /* Эффект тени на границах изображений */
 }
 
@@ -61,9 +116,7 @@ nav a {
   box-sizing: border-box; /* Включает границы и отступы в общий размер элемента */
   background: linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
     var(--border-gradient) border-box; /* "Эффект рамки достигнут "наложением" псевдоградиента (padding-box - до внутреннего края границы элемента) на основной градиент (border-box - до внешнего края)  */
-  border: 4px solid transparent; /* Прозрачная рамка-каркас */
   box-shadow: 0 0 8px rgba(40, 40, 40, 0.4); /* Эффект тени на границах контейнера */
-  line-height: 2rem; /* Расстояние между строками */
   text-align: center; /* Текст по центру контейнера */
 }
 
@@ -75,7 +128,6 @@ nav a {
 
 .marquee-content {
   display: inline-block; /* Для отображения контента (изображений) в одну строку */
-  margin-top: 50px; /* Внешний отступ сверху для контента */
   animation: marquee 10s infinite linear; /* Бесконечная линейная анимация для бегущей строки */
   -webkit-animation: marquee 10s infinite linear; /* Анимация, совместимость для Safari, Chrome, Opera 15+ и т.д */
   -ms-animation: marquee 10s infinite linear; /* Анимация, совместимость для Internet Explorer и старый Microsoft Edge 12–18 */
@@ -98,16 +150,43 @@ nav a {
 }
 
 .card {
+  max-width: 100%; /* Максимальная ширина карточки */
+  max-height: fit-content; /* Максимальная высота - по контенту */
+  box-sizing: border-box; /* Включает границы и отступы в общий размер элемента */
   background-color: var(--color-card); /* Цвет фона корточек */
+  border: 1px solid transparent; /* Рамка карточки (прозрачная) */
+  box-shadow: 0 0 8px rgba(40, 40, 40, 0.4); /* Эффект тени на границах карточек */
+}
+
+.card-block {
+  display: flex; /* Флекс-контейнер для блока карточек */
+  flex-direction: column; /* Расположение элементов в колонку */
+  justify-content: space-around; /* Выравнивание элементов по горизонтали */
+}
+
+.card-header {
+  font-family: "Pangolin", system-ui; /* Текстовая палитра для заглавия блока */
+  font-weight: 400; /* "Толщина" шрифта */
+  font-style: normal; /* Стиль написания текста - обычный */
+  text-shadow: 1px 1px 4px; /* Тень для текста */
+  text-align: center; /* Центрирование текста */
+}
+
+.train-one-regular {
+  font-family: "Train One", system-ui; /* Текстовая палитра для заголовка карточек*/
+  font-weight: 400; /* "Толщина" шрифта заголовка*/
+  font-style: normal; /* Стиль написания текста - обычный */
+  text-align: center; /* Центрирование текста */
+}
+
+.card p {
+  margin: 0; /* Убраны отступы между абзацами */
 }
 
 .grid-container__img {
   display: grid; /* Создание грид-контейнера для изображений */
   max-width: 100%; /* Максимальная ширина контейнера */
   max-height: fit-content; /* Максимальная высота - по контенту (для подстраховки) */
-  grid-template: repeat(4, 25%) / repeat(4, 1fr); /* Грид-шаблон строки/столбцы (проценты совмещены с фракцией для подгонки элементов) */
-  gap: 1.5%; /* Расстояние между грид-элементами по горизонтали и вертикали */
-  margin: 3.5% 2.8%; /* Внешние отступы для контейнера */
 }
 
 .grid-item__img {
@@ -116,14 +195,11 @@ nav a {
   place-self: stretch; /* Грид-элемент "растягивается" по X и Y в предназначенном ему пространстве */
   object-fit: cover; /* Сохраняем соотношение сторон */
   overflow: hidden; /* Защита от переполнения области изображений */
-  border-radius: 20px; /* Скругление изображений */
   box-shadow: 0 0 8px rgba(40, 40, 40, 0.4); /* Эффект тени на границах изображений */
 }
 
 .to-top {
   position: fixed; /* Фиксированная позиция */
-  right: 15px; /* Расстояние от правого края */
-  bottom: 20px; /* Расстояние от нижнего края */
   cursor: pointer; /* Форма курсора при взаимодействии - рука */
   display: none; /* Не отображать элемент по умолчанию */
   fill: #3a7dd4; /* Цвет SVG (наполнение) */
@@ -140,31 +216,18 @@ nav a {
   place-items: center; /* Центрирование по оси X-Y флекс-элементов */
   max-width: 100%; /* Максимальная ширина контейнера */
   max-height: fit-content; /* Максимальная высота по контенту */
-  margin-top: 8%; /* Внешний отступ сверху */
-  padding: 4% 3% 1% 3%; /* Внутренние отступы */
-  border-top-left-radius: 20px; /* Cкругление верхнего левого угла контейнера */
-  border-top-right-radius: 20px; /* Cкругление верхнего правого угла контейнера */
   background-color: var(--color-navfoot); /* Фоновый цвет футера */
   box-shadow: 0 3px 20px rgba(40, 40, 40, 0.4); /* Эффект размытия для верхней части футера */
-  font-size: 1.2rem; /* Размер шрифта для всего контейнера */
   color: #fff; /* Цвет текста */
-  line-height: 2rem; /* Расстояние между строками */
 }
 
 .footer-item1 {
-  margin: 1%; /* Отступы для параграфов (кроме Email) */
   text-align: center; /* Центрирование текста (при переносе строк на меньшем экране) */
-}
-
-.footer-item2 {
-  margin-top: 2.5%; /* Oтступ сверху для Email */
 }
 
 .decoration-line {
   width: 90%; /* Ширина декоративной линии */
-  height: 0.1px; /* Высота линии */
   background-color: #3498db; /* Цвет линии */
-  margin-top: 4%; /* Отступ сверху для линии (доп.калибровка в пространстве) */
 }
 
 .animate-element {
@@ -198,12 +261,13 @@ nav a {
 
 .history-img {
   display: block; /* Блочное представление изображений */
-  max-width: 70%; /* Максимальная ширина изображений */
-  max-height: 70%; /* Максимальная высота */
-  aspect-ratio: 16/9; /* Соотношение сторон изображения */
   object-fit: cover; /* Сохраняем соотношение сторон */
   overflow: hidden; /* Защита от переполнения */
   box-shadow: 0 0 8px rgba(40, 40, 40, 0.4); /* Эффект тени на границах изображений */
+}
+
+figure figcaption {
+  text-align: center; /* Центрирование текста подписи */
 }
 
 .history-header__h3 {
@@ -244,9 +308,12 @@ nav a {
   font-family: "Comfortaa", sans-serif; /* Текстовая палитра кнопки*/
   color: var(--color-notesbutton); /* Цвет текста */
   background-color: var(--color-bg); /* Цвет фона */
-  border: 2px solid var(--color-notesbutton); /* Границы кнопки + цвет */
   cursor: pointer; /* Курсор при наведении - рука*/
   box-shadow: 0 0 8px rgba(213, 213, 224, 0.4); /* Эффект тени на границах */
+}
+
+.decorate-notes__ul li {
+  box-shadow: inset 0 -2px 0 var(--color-bg); /* Эффект разделения элементов списка */
 }
 
 .decorate-notes__button:active {
@@ -265,7 +332,6 @@ nav a {
 .decorate-notes__ul li {
   overflow-wrap: break-word; /* Длинные слова переходят на новую строку, если они не помещаются в контейнер */
   word-break: break-all; /* Строгий перенос слов (доп.защита от переполенния) */
-  box-shadow: inset 0 -2px 0 var(--color-bg); /* Эффект разделения элементов списка */
   cursor: pointer; /* Форма курсора при взаимодействии - рука */
   position: relative; /* Относительное позиционирование */
 }
@@ -273,7 +339,6 @@ nav a {
 .decorate-notes__ul li::before {
   content: ""; /* Необходимо для корректной работы псевдоэлемента */
   position: absolute; /* Абсолютное позиционирование */
-  border: 1px solid #000; /* Границы элемента */
   border-radius: 50%; /* Скругление границы (круг) */
 }
 
@@ -340,6 +405,8 @@ nav a {
 .auth-container {
   display: grid; /* Создание грид-контейнера */
   width: 100%; /* Ширина контейнера */
+  height: 100vh; /* Высота контейнера (вьюпорт) */
+  grid-template-columns: 1fr; /* Грид-колонки */
   grid-template-areas:
     "a"
     "b"; /* Шаблон грид-областей */
