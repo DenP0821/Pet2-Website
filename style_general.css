@@ -376,18 +376,12 @@ figure figcaption {
   user-select: none; /* Предотвращает выделение символа */
 }
 
-.custom-alert__empty {
-  position: absolute; /* Абсолютное позиционирование */
-  color: #fff; /* Цвет текста предупреждения (баннер) */
-  background-color: #be1919; /* Цвет фона баннера */
-  display: none; /* По умолчанию - баннер скрыт */
-}
-
+.custom-alert__empty,
 .custom-alert__space {
   position: absolute; /* Абсолютное позиционирование */
   color: #fff; /* Цвет текста предупреждения (баннер) */
   background-color: #be1919; /* Цвет фона баннера */
-  display: none; /* По умолчанию - баннер скрыт */
+  display: none; /* По умолчанию - баннеры скрыты */
 }
 
 /* Общие стили - Авторизация (authorization.html) */
@@ -400,6 +394,7 @@ figure figcaption {
   color: #fff; /* Основной цвет текста */
   background: url("auth-background.jpg") center; /* Фоновое изображение */
   box-sizing: border-box; /* Включает границы и отступы в общий размер элемента */
+  position: relative; /* Относительное позиционирование */
 }
 
 .auth-container {
@@ -430,6 +425,14 @@ figure figcaption {
     rgba(255, 255, 255, 0.1),
     rgba(255, 255, 255, 0.1)
   ); /* Сочетание с backdrop-filter для лучшего эффекта (прозрачность) */
+}
+
+.item1 span:hover {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.2)
+  ); /* Выделение блока ссылки "На главную" при наведении */
 }
 
 .auth-nav {
@@ -484,6 +487,15 @@ figure figcaption {
   ); /* Сочетание с backdrop-filter для лучшего эффекта (прозрачность) */
 }
 
+.auth-input:focus {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.3)
+  ); /* Меняем прозрачность фона при фокусе на инпут */
+  border-color: #fff; /* Цвет рамки инпута при фокусе */
+}
+
 .auth-input::placeholder {
   color: #fff; /* Цвет текста плейсхолдера внутри инпута */
   opacity: 0.6; /* Прозрачность для лучшего эффекта */
@@ -491,6 +503,7 @@ figure figcaption {
 
 .checkbox-input {
   accent-color: #cccccc; /* Цвет чекбокса при выполнении */
+  cursor: pointer; /* Форма курсора при взаимодействии - рука */
 }
 
 .auth-button {
@@ -500,9 +513,23 @@ figure figcaption {
     rgba(255, 255, 255, 0.5)
   ); /* Слегка прозрачная кнопка входа */
   border: none; /* Скрытие границ кнопки */
+  cursor: pointer; /* Форма курсора при взаимодействии - рука */
 }
 
+.auth-button:active {
+  opacity: 0.8; /* Для эффекта нажатия кнопки */
+  transform: scale(0.98); /* Для эффекта нажатия кнопки */
+}
+
+.alert-empty,
 .alert__wrong-login,
 .alert__wrong-password {
+  position: absolute; /* Абсолютное позиционирование */
+  color: #fff; /* Цвет текста предупреждения (баннер) */
+  background-color: #be1919; /* Цвет фона баннера */
   display: none; /* По умолчанию - баннеры скрыты */
+}
+
+.warning-icon {
+  position: absolute; /* Абсолютное позиционирование */
 }

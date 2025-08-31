@@ -36,12 +36,16 @@
             Введите логин и пароль предоставленный администратором
           </p>
           <p class="auth-paragraph2">Логин</p>
-          <input type="text" placeholder="Введите логин" class="auth-input" />
+          <input
+            type="text"
+            placeholder="Введите логин"
+            class="auth-input input1"
+          />
           <p class="auth-paragraph2">Пароль</p>
           <input
             type="password"
             placeholder="Введите пароль"
-            class="auth-input"
+            class="auth-input input2"
           />
           <div class="auth-checkbox">
             <input type="checkbox" class="checkbox-input" />
@@ -50,10 +54,23 @@
           <button class="auth-button">Вход</button>
         </div>
         <!-- Всплывающие окна (алармы) -->
-        <div class="custom-alert__empty">Введите текст</div>
-        <div class="custom-alert__space">Уберите пробелы в начале строки</div>
-        <div class="alert__wrong-login">Неверный логин</div>
-        <div class="alert__wrong-password">Неверный пароль</div>
+        <div class="alert-empty">Введите логин и пароль</div>
+        <div class="alert__wrong-login">
+          <img
+            src="Warning-SVG-Icon.svg"
+            alt=""
+            aria-hidden="true"
+            class="warning-icon"
+          />Неверный логин
+        </div>
+        <div class="alert__wrong-password">
+          <img
+            src="Warning-SVG-Icon.svg"
+            alt=""
+            aria-hidden="true"
+            class="warning-icon"
+          />Неверный пароль
+        </div>
       </section>
     </main>
   </body>
