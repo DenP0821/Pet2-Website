@@ -38,39 +38,38 @@
           <p class="auth-paragraph2">Логин</p>
           <input
             type="text"
+            name="login"
+            id="login-id"
             placeholder="Введите логин"
             class="auth-input input1"
+            autocomplete="off"
           />
+          <label for="login-id" class="login-label"
+            >Логин должен содержать от 5 до 12 символов. Допустимы латинские
+            строчные и заглавные буквы, цифры, а также символы @ _ -</label
+          >
           <p class="auth-paragraph2">Пароль</p>
           <input
             type="password"
+            name="password"
+            id="password-id"
             placeholder="Введите пароль"
             class="auth-input input2"
           />
+          <label for="password-id" class="password-label"
+            >Пароль должен содержать от 8 до 20 символов, не менее одной
+            строчной и заглавной латинских букв, не менее одной цифры, а также
+            не менее одного специального символа, за исключением ; : ' " ` .
+            ,</label
+          >
           <div class="auth-checkbox">
             <input type="checkbox" class="checkbox-input" />
-            <p class="auth-paragraph3">Запомнить меня</p>
+            <p class="auth-paragraph3">Показать пароль</p>
           </div>
-          <button class="auth-button">Вход</button>
+          <button class="auth-button">Зарегистрироваться</button>
         </div>
         <!-- Всплывающие окна (алармы) -->
         <div class="alert-empty">Введите логин и пароль</div>
-        <div class="alert__wrong-login">
-          <img
-            src="Warning-SVG-Icon.svg"
-            alt=""
-            aria-hidden="true"
-            class="warning-icon"
-          />Неверный логин
-        </div>
-        <div class="alert__wrong-password">
-          <img
-            src="Warning-SVG-Icon.svg"
-            alt=""
-            aria-hidden="true"
-            class="warning-icon"
-          />Неверный пароль
-        </div>
       </section>
     </main>
   </body>

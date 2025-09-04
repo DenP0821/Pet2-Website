@@ -284,6 +284,7 @@ figure figcaption {
   height: fit-content; /* Высота контейнера (по контенту) */
   display: flex; /* Флекс-контейнер */
   flex-direction: column; /* Расположение элементов - в колонку */
+  position: relative; /* Относительное позиционирование */
 }
 
 .decorate-notes__header {
@@ -376,6 +377,11 @@ figure figcaption {
   user-select: none; /* Предотвращает выделение символа */
 }
 
+.empty-notes {
+  position: absolute; /* Абсолютное позиционирование */
+  z-index: -1; /* Для перекрытия текста заметками */
+}
+
 .custom-alert__empty,
 .custom-alert__space {
   position: absolute; /* Абсолютное позиционирование */
@@ -461,14 +467,6 @@ figure figcaption {
   text-align: center; /* Центрирование текста */
 }
 
-.auth-checkbox {
-  position: relative; /* Отностительное позиционирование */
-}
-
-.auth-checkbox input {
-  position: absolute; /* Абсолютное позиционирование */
-}
-
 .auth-input,
 .auth-button {
   width: 100%; /* Ширина инпутов и кнопки */
@@ -479,6 +477,7 @@ figure figcaption {
 }
 
 .auth-input {
+  display: inline-block;
   backdrop-filter: blur(10px); /* Размытие фона инпутов */
   background: linear-gradient(
     45deg,
@@ -499,11 +498,39 @@ figure figcaption {
 .auth-input::placeholder {
   color: #fff; /* Цвет текста плейсхолдера внутри инпута */
   opacity: 0.6; /* Прозрачность для лучшего эффекта */
+  user-select: none; /* Предотвращает выделение текста плейсхолдера */
 }
 
-.checkbox-input {
-  accent-color: #cccccc; /* Цвет чекбокса при выполнении */
+.auth-checkbox {
+  position: relative; /* Отностительное позиционирование */
+}
+
+.auth-checkbox input {
+  position: absolute; /* Абсолютное позиционирование чекбокса */
   cursor: pointer; /* Форма курсора при взаимодействии - рука */
+  opacity: 0; /* Визуальное скрытие чекбокса (создание кастомного) */
+}
+
+.auth-checkbox input + .auth-paragraph3 {
+  display: inline-flex; /* Для расположения элементов в линию (чекбокс, кастом и текст) */
+  align-items: center; /* Доп.выравнивание элементов по центру поперечной оси */
+  user-select: none; /* Предотвращает выделение текста и содержимого чекбокса */
+}
+
+.auth-checkbox input + .auth-paragraph3::before {
+  content: ""; /* Необходимо для корректной работы псевдоэлемента */
+  flex-shrink: 0; /* Запрещаем флекс-элементу "сжиматься" */
+  flex-grow: 0; /* Запрещаем флекс-элементу "расти" */
+  background-repeat: no-repeat; /* Фон не повторяется */
+  background-position: center center; /* Позиция фона по центру x/y */
+  background-size: 100% 100%; /* Размер фона на всю ширину и высоту */
+  background-color: #535353; /* Цвет фона */
+}
+
+.auth-checkbox input:checked + .auth-paragraph3::before {
+  background-image: url(check.svg); /* Иконка галочка для состояния checked */
+  background-color: #818181; /* Цвет фона для состояния checked */
+  border-color: #f1f1f1; /* Цвет рамки чекбокса для состояния checked */
 }
 
 .auth-button {
@@ -511,9 +538,10 @@ figure figcaption {
     45deg,
     rgba(255, 255, 255, 0.5),
     rgba(255, 255, 255, 0.5)
-  ); /* Слегка прозрачная кнопка входа */
+  ); /* Слегка прозрачная кнопка регистрации */
   border: none; /* Скрытие границ кнопки */
   cursor: pointer; /* Форма курсора при взаимодействии - рука */
+  user-select: none; /* Предотвращает выделение текста */
 }
 
 .auth-button:active {
@@ -521,15 +549,17 @@ figure figcaption {
   transform: scale(0.98); /* Для эффекта нажатия кнопки */
 }
 
-.alert-empty,
-.alert__wrong-login,
-.alert__wrong-password {
+.alert-empty {
   position: absolute; /* Абсолютное позиционирование */
   color: #fff; /* Цвет текста предупреждения (баннер) */
   background-color: #be1919; /* Цвет фона баннера */
   display: none; /* По умолчанию - баннеры скрыты */
 }
 
-.warning-icon {
-  position: absolute; /* Абсолютное позиционирование */
+.login-label,
+.password-label {
+  display: block; /* Блочный тип элемента (для работы отступов) */
+  word-break: break-all; /* Строгий перенос слов */
+  background-color: #be1919; /* Цвет фона */
+  display: none; /* По умолчанию - подсказки скрыты */
 }
