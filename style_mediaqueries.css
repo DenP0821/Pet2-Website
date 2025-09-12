@@ -23,8 +23,25 @@
     font-size: 1rem; /* Размер шрифта элементов списка */
   }
 
-  .switch {
-    margin-right: 6%; /* Выравнивание переключателя относительно других элементов нав.панели */
+  .link-decoration {
+    position: relative; /* Относительное позиционирование */
+  }
+
+  .link-decoration::after {
+    position: absolute; /* Абсолютное позиционирование */
+    content: ""; /* Для работы псевдоэлемента */
+    left: 50%; /* Начальное положение псевдоэлемента по центру (ось X) */
+    bottom: -3px; /* Позиционирование по вертикали (ось Y) */
+    display: block; /* Блочное представление элемента */
+    height: 2px; /* Высота элемента */
+    width: 0; /* Ширина элемента до наведения курсора */
+    background-color: #fff; /* Фоновый цвет элемента */
+    transition: 0.3s; /* Плавность анимации */
+    transform: translateX(-50%); /* Эффект анимации от центра в стороны */
+  }
+
+  .link-decoration:hover::after {
+    width: 100%; /* Расширяем элемент до 100% при наведении */
   }
 
   .switcher {
@@ -367,7 +384,266 @@
     font-size: 0.85rem; /* Размер шрифта */
     line-height: 1rem; /* Расстояние между строками */
     border-radius: 8px; /* Скругление углов */
-    padding: 5px; /* Внутренние отступы для задания окна */
+    padding: 5px; /* Внутренние отступы для задания окна подсказки */
+  }
+}
+
+/* Скрытие меню с бургер-кнопкой для больших экранов */
+
+@media screen and (width > 1500px) {
+  .nav-alternate {
+    display: none; /* Отображение нав.меню для малых экранов выключено (экраны шириной более 1500px) */
+  }
+}
+
+/* Навигационное меню с бургер-кнопкой для малых экранов */
+
+@media screen and (width <= 1500px) {
+  nav {
+    display: none; /* Отображение нав.меню для больших экранов выключено */
+  }
+
+  .nav-alternate {
+    display: block; /* Отображение нав.меню для малых экранов включено (экраны шириной меньше или равно 1500px) */
+  }
+
+  .nav-alternate__row {
+    position: relative; /* Относительное позиционирование */
+    display: flex; /* Флекс-контейнер */
+    justify-content: center; /* Элементы по центру контейнера по главной оси */
+    align-items: center; /* Элементы по центру контейнера по поперечной оси */
+    width: 100%; /* Ширина контейнера навигационной панели */
+    height: 70px; /* Высота контейнера навигационной панели */
+    background-color: var(--color-navfoot); /* Цвет фона навигационной панели */
+    box-shadow: 0 3px 20px rgba(40, 40, 40, 0.4); /* Эффект тени для нижней части нав.панели */
+    font-size: 0.9rem; /* Размер шрифта */
+  }
+
+  .nav-alternate__row h1 a {
+    text-decoration: none; /* Удаление подчеркивания ссылки */
+    color: #fff; /* Цвет текста логотипа */
+  }
+
+  .nav-alternate__row div {
+    position: absolute; /* Абсолютное позиционирование переключателя светлая/тёмная тема */
+    top: 22px; /* Позиция по вертикали */
+    right: 62px; /* Позиция по горизонтали */
+  }
+
+  .switcher__alt {
+    display: inline-block; /* Строчно-блочный тип отображения (контейнер переключателя) */
+    position: relative; /* Относительное позиционирование контейнера */
+    width: 55px; /* Ширина контейнера */
+    height: 28px; /* Высота контейнера */
+  }
+
+  .switcher-input__alt {
+    width: 0; /* Скрытие чекбокса */
+    height: 0; /* Скрытие чекбокса */
+    opacity: 0; /* Скрытие чекбокса */
+  }
+
+  .switcher-slider__alt {
+    position: absolute; /* Абсолютное позиционирование элемента слайдера (подложка) */
+    cursor: pointer; /* Курсор при наведении - рука */
+    top: 0; /* Растягивание элемента слайдера */
+    left: 0; /* Растягивание элемента слайдера */
+    right: 0; /* Растягивание элемента слайдера */
+    bottom: 0; /* Растягивание элемента слайдера */
+    background-color: #ffd546; /* Начальный цвет фона элемента слайдера */
+    transition: 0.4s; /* Плавность перемещения ползунка */
+    border-radius: 24px; /* Скругление элемента слайдера */
+  }
+
+  .switcher-slider__alt::before {
+    content: ""; /* Для работы псевдоэлемента (добавляем только визуал) */
+    position: absolute; /* Абсолютное позиционирование ползунка */
+    cursor: pointer; /* Курсор при наведении - рука*/
+    border-radius: 50%; /* Скругление ползунка (круг) */
+    background-color: #000; /* Цвет ползунка */
+    transition: 0.4s; /* Плавность перемещения ползунка */
+    left: 4px; /* Размещение ползунка */
+    bottom: 4px; /* Размещение ползунка */
+    height: 20px; /* Высота ползунка */
+    width: 20px; /* Ширина ползунка */
+  }
+
+  .switcher-input__alt:focus + .switcher-slider__alt {
+    box-shadow: 0 0 4px #60a7f0; /* Немного эффекта тени при фокусе на элемент */
+  }
+
+  .switcher-input__alt:checked + .switcher-slider__alt {
+    background-color: #60a7f0; /* Цвет фона при выборе флага элемента (check) */
+  }
+
+  .switcher-input__alt:checked + .switcher-slider__alt::before {
+    transform: translateX(26px); /* Перемещение ползунка (check) */
+    -webkit-transform: translateX(
+      26px
+    ); /* Перемещение ползунка, совместимость для Safari, Chrome, Opera 15+ и т.д */
+    -ms-transform: translateX(
+      26px
+    ); /* Перемещение ползунка, совместимость для Internet Explorer и старый Microsoft Edge 12–18 */
+  }
+
+  .menu {
+    position: fixed; /* Фиксированная позиция меню (кнопка) */
+    width: 60px; /* Ширина кнопки меню */
+    height: 50px; /* Высота кнопки меню */
+    z-index: 2; /* Порядок наложения кнопки (поверх остального контента) */
+    top: 10px; /* Позиция по вертикали */
+    left: 27px; /* Позиция по горизонтали */
+    background-color: #3a7dd4; /* Фоновый цвет кнопки */
+    opacity: 0.9; /* Прозрачность по умолчанию */
+    border-radius: 8px; /* Скругление углов */
+  }
+
+  .menu span {
+    position: absolute; /* Абсолютное позиционирование (полоска в кнопке) */
+    top: 50%; /* Позиция по вертикали */
+    left: 50%; /* Позиция по горизонтали */
+    margin-left: 13px; /* Отступ слева */
+  }
+
+  .menu span,
+  .menu span::before,
+  .menu span::after {
+    display: block; /* Блочное представление (для применения эффектов к полоскам) */
+    width: 25px; /* Ширина элементов */
+    height: 3px; /* Высота элементов */
+    left: 0; /* Позиция по горизонтали */
+    background-color: #fff; /* Фоновый цвет */
+    transition: 0.5s; /* Плавность анимации */
+  }
+
+  .menu span::before,
+  .menu span::after {
+    position: absolute; /* Абсолютное позиционирование (полоски-псевдоэлементы) */
+    content: ""; /* Для работы псевдоэлементов */
+  }
+
+  .menu span::before {
+    top: -9px; /* Позиция по вертикали */
+    width: 20px; /* Ширина псевдоэлемента */
+  }
+
+  .menu span::after {
+    top: 9px; /* Позиция по вертикали */
+    width: 33px; /* Ширина псевдоэлемента */
+  }
+
+  .menu:hover {
+    cursor: pointer; /* Форма курсора при взаимодействии - рука */
+    opacity: 1; /* Прозрачность при наведении курсора */
+  }
+
+  .menu.clicked span {
+    background-color: transparent; /* Прозрачность средней полоски при клике */
+  }
+
+  .menu.clicked span::before {
+    transform: translateY(9px) rotate(45deg); /* Перемещение верхней полоски при клике */
+    width: 33px; /* Ширина после клика */
+  }
+
+  .menu.clicked span::after {
+    transform: translateY(-9px) rotate(-45deg); /* Перемещение нижней полоски при клике */
+  }
+
+  .list-alternate {
+    position: fixed; /* Фиксированная позиция нав.списка */
+    z-index: 2; /* Порядок наложения нав.списка(поверх остального контента) */
+    backdrop-filter: blur(10px); /* Размытие фона */
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ); /* Сочетание с backdrop-filter для лучшего эффекта (прозрачность) */
+    box-shadow: 0 0 8px rgba(40, 40, 40, 0.4); /* Эффект тени на границах */
+    text-shadow: 1px 1px 1px; /* Тень для текста */
+    top: 54px; /* Позиция по вертикали */
+    left: 0; /* Позиция по горизонтали */
+    width: 100%; /* Ширина */
+    max-width: 400px; /* Максимальная ширина */
+    height: calc(100vh - 150px); /* Высота (экран - нав.сттрока и паддинг) */
+    border-top-right-radius: 20px; /* Cкругление верхнего правого угла контейнера */
+    border-bottom-right-radius: 20px; /* Cкругление нижнего правого угла контейнера */
+    padding: 80px 40px 0 40px; /* Внутренние отступы */
+    transform: translateX(
+      -100%
+    ); /* Начальное смещение нав.списка вбок (за экран) */
+    transition: transform 0.3s ease-in; /* Плавность анимации */
+    filter: grayscale(30%); /* Эффект слегка серого фона */
+  }
+
+  .list-alternate.show {
+    transform: translateX(
+      0
+    ); /* Смещение нав.списка из-за экрана при нажатии кнопки меню */
+  }
+
+  .list-alternate li {
+    margin-left: 60px; /* Внешний отступ слева (элементы списка) */
+    padding-left: 15px; /* Внутренний отступ слева */
+    padding-top: 55px; /* Внутренний отступ сверху */
+    list-style: circle; /* Полые круги перед текстом элементов списка */
+    color: #000; /* Цвет текста */
+    transform: translateX(-55px); /* Начальное смещение элементов списка вбок */
+    transition: all 0.3s ease; /* Плавность анимации */
+    opacity: 0; /* Начальная прозрачность элементов списка */
+  }
+
+  .list-alternate.show li {
+    transform: translateX(
+      0px
+    ); /* Смещение элементов списка вправо при нажатии кнопки меню */
+    opacity: 1; /* Прозрачность элементов списка при нажатии кнопки меню */
+  }
+
+  .list-alternate.show li:nth-child(1) {
+    transition-delay: 0.2s; /* Эффект задержки для каскадного появления элементов списка (1й) */
+  }
+
+  .list-alternate.show li:nth-child(2) {
+    transition-delay: 0.4s; /* Эффект задержки для каскадного появления элементов списка (2й) */
+  }
+
+  .list-alternate.show li:nth-child(3) {
+    transition-delay: 0.6s; /* Эффект задержки для каскадного появления элементов списка (3й) */
+  }
+
+  .list-alternate.show li:nth-child(4) {
+    transition-delay: 0.8s; /* Эффект задержки для каскадного появления элементов списка (4й) */
+  }
+
+  .list-alternate li a {
+    display: block; /* Блочное представление ссылок (для работы анимации подчёркивания) */
+    width: fit-content; /* Ширина по контенту */
+    color: #000; /* Цвет текста */
+    text-transform: uppercase; /* Все буквы прописные */
+    font-size: 1.3rem; /* Размер текста */
+    text-decoration: none; /* Удаление базового подчёркивания ссылок */
+  }
+
+  .link-decoration__alt {
+    position: relative; /* Относительное позиционирование (анимация подчёркивания) */
+  }
+
+  .link-decoration__alt::after {
+    position: absolute; /* Абсолютное позиционирование */
+    content: ""; /* Для работы псевдоэлемента */
+    left: 50%; /* Начальное положение псевдоэлемента по центру (ось X) */
+    bottom: -4.5px; /* Позиционирование по вертикали (ось Y) */
+    display: block; /* Блочное представление элемента */
+    height: 2px; /* Высота элемента */
+    width: 0; /* Ширина элемента до наведения курсора */
+    background-color: #000; /* Фоновый цвет элемента */
+    transform: translateX(-50%); /* Эффект анимации от центра в стороны */
+    transition: 0.3s ease; /* Плавность анимации */
+  }
+
+  .link-decoration__alt:hover::after {
+    width: 100%; /* Расширяем элемент до 100% при наведении */
   }
 }
 

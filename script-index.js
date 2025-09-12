@@ -1,6 +1,8 @@
 // Выбор элементов в DOM-структуре
 const parent = document.getElementById("parent");
 const toTopBtn = document.querySelector(".to-top");
+const menu = document.querySelector(".menu");
+const listBar = document.querySelector(".list-alternate");
 
 // ///////////////////////////////////////////////////////////
 // Добавление элемента в DOM. Карточка группы
@@ -69,4 +71,16 @@ document.addEventListener("DOMContentLoaded", () => {
       behavior: "smooth",
     });
   }); /* Метод window.scrollBy() позволяет прокручивать документ в окне на заданное количество пикселей. document.documentElement.scrollHeight - общая высота содержимого документа (с минусом - прокрутка вверх). behavior: "smooth" - плавная прокрутка.  */
+});
+
+// ///////////////////////////////////////////////////////////
+//  Навигационное меню с бургер-кнопкой для малых экранов
+// ///////////////////////////////////////////////////////////
+menu.addEventListener("click", () => {
+  menu.classList.toggle(
+    "clicked"
+  ); /* Нажатие на кнопку меню - смена класса (полоски/крестик) */
+  listBar.classList.toggle(
+    "show"
+  ); /* Нажатие на кнопку меню - показать/скрыть нав.меню */
 });

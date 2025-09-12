@@ -15,6 +15,7 @@
       rel="stylesheet"
     />
     <script src="script-darkmode.js" defer></script>
+    <script src="script-darkmode-alt.js" defer></script>
     <script src="script-history.js" defer></script>
   </head>
   <!-- Тело страницы -->
@@ -25,9 +26,18 @@
       <nav role="navigation">
         <h1><a href="index.html">Rock-Заметки</a></h1>
         <ul>
-          <li><a href="history.html">История</a></li>
-          <li><a href="notes.html">Заметочная</a></li>
-          <li><a href="authorization.html">Авторизация</a></li>
+          <li>
+            <a href="index.html" class="link-decoration">Главная</a>
+          </li>
+          <li>
+            <a href="history.html" class="link-decoration">История</a>
+          </li>
+          <li>
+            <a href="notes.html" class="link-decoration">Заметочная</a>
+          </li>
+          <li>
+            <a href="authorization.html" class="link-decoration">Авторизация</a>
+          </li>
         </ul>
         <!-- Переключатель светлая/тёмная тема -->
         <div id="switch" class="switch-sun">
@@ -37,6 +47,36 @@
           </label>
         </div>
       </nav>
+      <!-- Навигационное меню с бургер-кнопкой для малых экранов -->
+      <div class="menu"><span></span></div>
+      <div role="navigation" class="nav-alternate">
+        <div class="nav-alternate__row">
+          <h1><a href="index.html">Rock-Заметки</a></h1>
+          <!-- Переключатель светлая/тёмная тема -->
+          <div id="switch__alt" class="switch-sun">
+            <label class="switcher__alt">
+              <input type="checkbox" class="switcher-input__alt" />
+              <span class="switcher-slider__alt"></span>
+            </label>
+          </div>
+        </div>
+        <ul class="list-alternate">
+          <li>
+            <a href="index.html" class="link-decoration__alt">Главная</a>
+          </li>
+          <li>
+            <a href="history.html" class="link-decoration__alt">История</a>
+          </li>
+          <li>
+            <a href="notes.html" class="link-decoration__alt">Заметочная</a>
+          </li>
+          <li>
+            <a href="authorization.html" class="link-decoration__alt"
+              >Авторизация</a
+            >
+          </li>
+        </ul>
+      </div>
     </header>
     <!-- Основная часть страницы -->
     <main>
