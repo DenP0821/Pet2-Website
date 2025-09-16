@@ -22,15 +22,24 @@
       href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
     <script src="script-darkmode.js" defer></script>
     <script src="script-darkmode-alt.js" defer></script>
     <script src="script-index.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"
+      defer
+    ></script>
+    <script src="script-swiper-index.js" defer></script>
   </head>
   <!-- Тело страницы -->
   <body>
     <!-- Заглавная часть страницы -->
     <header>
-      <!-- Навигационная панель -->
+      <!-- Навигационная панель для больших экранов -->
       <nav role="navigation">
         <h1><a href="index.html">Rock-Заметки</a></h1>
         <ul>
@@ -90,6 +99,7 @@
     <main>
       <!-- Секция-баннер - вступительная часть страницы -->
       <section role="banner">
+        <!-- Картинки-баннер для больших экранов-->
         <div class="header-banner">
           <img class="header-pic" src="HeaderPic1.jpg" alt="Header Picture1" />
           <img class="header-pic" src="HeaderPic2.jpg" alt="Header Picture2" />
@@ -97,6 +107,51 @@
           <img class="header-pic" src="HeaderPic4.jpg" alt="Header Picture4" />
           <img class="header-pic" src="HeaderPic5.jpg" alt="Header Picture5" />
         </div>
+        <!-- Картинки-баннер для малых экранов (слайдер) -->
+        <div class="swiper-container">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="slide-content">
+                  <img src="HeaderPic1.jpg" alt="Header Picture1" />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slide-content">
+                  <img src="HeaderPic2.jpg" alt="Header Picture2" />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slide-content">
+                  <img src="HeaderPic3.jpg" alt="Header Picture3" />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slide-content">
+                  <img src="HeaderPic4.jpg" alt="Header Picture4" />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slide-content">
+                  <img src="HeaderPic5.jpg" alt="Header Picture5" />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slide-content">
+                  <img src="HeaderPic6.jpg" alt="Header Picture6" />
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-prev">
+              <i class="bx bx-left-arrow-alt"></i>
+            </div>
+            <div class="swiper-button-next">
+              <i class="bx bx-right-arrow-alt"></i>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+        <!-- Вступительный текст -->
         <div class="header-text animate-element">
           <h2>
             При слове «Рок» у каждого возникают свои ассоциации. Кто-то
