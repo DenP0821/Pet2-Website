@@ -7,6 +7,7 @@ const customAlertSpace = document.querySelector(".custom-alert__space");
 const toTopBtn = document.querySelector(".to-top");
 const menu = document.querySelector(".menu");
 const listBar = document.querySelector(".list-alternate");
+const overlay = document.querySelector(".overlay");
 
 // ///////////////////////////////////////////////////////////
 // Автоматизация работы заметок
@@ -134,5 +135,29 @@ menu.addEventListener("click", () => {
   ); /* Нажатие на кнопку меню - смена класса (полоски/крестик) */
   listBar.classList.toggle(
     "show"
-  ); /* Нажатие на кнопку меню - показать/скрыть нав.меню */
+  ); /* Нажатие на кнопку меню - показать/скрыть нав.панель */
+  if (menu.classList.contains("clicked")) {
+    overlay.style.display = "block";
+    toggleBodyScroll(true); /* Функция для "отключения" прокрутки страницы" */
+  } else {
+    overlay.style.display =
+      "none"; /* Применение затемняющего оверлея, если кнопка меню "нажата", иначе - оверлей скрывается */
+    toggleBodyScroll(false); /* Функция для "включения" прокрутки страницы" */
+  }
 });
+
+overlay.addEventListener("click", () => {
+  if (
+    menu.classList.contains("clicked") &&
+    listBar.classList.contains("show")
+  ) {
+    menu.classList.remove("clicked");
+    listBar.classList.remove("show");
+    overlay.style.display = "none";
+    toggleBodyScroll(false);
+  }
+}); /* Реализация возможности нажатия на пустое место вне открытой нав.панели - позволяет скрыть нав.панель, убрать оверлей, вернуть кнопку меню в исходное состояние и разрешить прокрутку страницы. Для удобства. */
+
+function toggleBodyScroll(lock) {
+  document.body.style.overflow = lock ? "hidden" : "";
+} /* Функция для "выключения/включения" прокрутки страницы */
