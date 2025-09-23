@@ -23,7 +23,7 @@ const swiper = new Swiper(".swiper", {
     enabled: true /* Пролистывание слайдов с помощью клавиатуры */,
   },
   breakpoints: {
-    400: {
+    300: {
       slidesPerView: 2,
     },
     600: {
