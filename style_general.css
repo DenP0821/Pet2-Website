@@ -85,14 +85,14 @@ nav a {
 
 .switch-sun::after {
   content: ""; /* Для работы псевдоэлемента (добавляем только визуал) */
-  background-image: url("weather-sunny.svg"); /* Фоновое изображение - светлая тема */
+  background-image: url("/SVG/weather-sunny.svg"); /* Фоновое изображение - светлая тема */
   display: inline-block; /* Строчно-блочный тип отображения элемента */
   position: absolute; /* Абсолютное позиционирование элемента изображения */
 }
 
 .switch-moon::after {
   content: ""; /* Для работы псевдоэлемента (добавляем только визуал) */
-  background-image: url("weather-night.svg"); /* Фоновое изображение - тёмная тема*/
+  background-image: url("/SVG/weather-night.svg"); /* Фоновое изображение - тёмная тема*/
   display: inline-block; /* Строчно-блочный тип отображения элемента */
   position: absolute; /* Абсолютное позиционирование элемента изображения */
 }
@@ -397,7 +397,7 @@ figure figcaption {
   margin: 0; /* Обнуление внешних отступов */
   padding: 0; /* Обнуление внутренних отступов */
   color: #fff; /* Основной цвет текста */
-  background: url("auth-background.jpg") center; /* Фоновое изображение */
+  background: url("/JPG/auth-background.jpg") center; /* Фоновое изображение */
   box-sizing: border-box; /* Включает границы и отступы в общий размер элемента */
   position: relative; /* Относительное позиционирование */
 }
@@ -522,7 +522,7 @@ figure figcaption {
 }
 
 .auth-checkbox input:checked + .auth-paragraph3::before {
-  background-image: url(check.svg); /* Иконка галочка для состояния checked */
+  background-image: url("/SVG/check.svg"); /* Иконка галочка для состояния checked */
   background-color: #818181; /* Цвет фона для состояния checked */
   border-color: #f1f1f1; /* Цвет рамки чекбокса для состояния checked */
 }
