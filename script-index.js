@@ -4,6 +4,11 @@ const toTopBtn = document.querySelector(".to-top");
 const menu = document.querySelector(".menu");
 const listBar = document.querySelector(".list-alternate");
 const overlay = document.querySelector(".overlay");
+const forGalleryImg = document.querySelectorAll(".grid-container__img img");
+const galleryWindow = document.querySelector(".pop-up");
+const galleryImg = document.querySelector(".pop-up img");
+const galleryImgTitle = document.querySelector(".pop-up .pop-up__title");
+const galleryExit = document.querySelector(".pop-up .pop-up__cross");
 
 // ///////////////////////////////////////////////////////////
 // Добавление элемента в DOM. Карточка группы
@@ -51,7 +56,7 @@ let elements =
 
 for (let elm of elements) {
   observer.observe(elm);
-} /* Цикл "for...of" перебирает элементы с заданным классом и сохраняет в переменной "elm". Отслеживаем с помощью метода "observe" все пересечения элементов. */
+} /* Цикл "for...of" по массиву перебирает элементы с заданным классом. Отслеживаем с помощью метода "observe" все пересечения элементов. */
 
 // ///////////////////////////////////////////////////////////
 // "Прокрутка" страницы вверх
@@ -109,3 +114,28 @@ overlay.addEventListener("click", () => {
 function toggleBodyScroll(lock) {
   document.body.style.overflow = lock ? "hidden" : "";
 } /* Функция для "выключения/включения" прокрутки страницы */
+
+// ///////////////////////////////////////////////////////////
+//  Галерея изображений (в поп-ап)
+// ///////////////////////////////////////////////////////////
+forGalleryImg.forEach((img) => {
+  img.addEventListener("click", () => {
+    galleryWindow.style.display =
+      "block"; /* По щелчку на изображение - открытие галереи (поп-апа) */
+    toggleBodyScroll(true); /* Функция для "отключения" прокрутки страницы" */
+    galleryImg.src =
+      img.getAttribute(
+        "src"
+      ); /* Получение и присваивание атрибута src изображения для динамического открытия img */
+    galleryImgTitle.innerText =
+      img.getAttribute(
+        "alt"
+      ); /* Получение и присваивание атрибута alt изображения для динамического описания в span */
+  });
+}); /* Реализация возможности выводить динамически изображение в поп-ап с динамическим описанием, соответствующим изображению */
+
+galleryExit.addEventListener("click", () => {
+  galleryWindow.style.display =
+    "none"; /* По щелчку на "крестик" - cкрытие галереи (поп-апа) */
+  toggleBodyScroll(false); /* Функция для "включения" прокрутки страницы" */
+});

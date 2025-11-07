@@ -153,6 +153,13 @@
 
   .grid-item__img {
     border-radius: 20px; /* Скругление изображений */
+    transition: 0.5s ease; /* Время перехода к увеличенному изображению при наведении курсора */
+  }
+
+  .grid-item__img:hover {
+    transform: scale(
+      1.05
+    ); /* Эффект увелитчения изображения при наведении курсора */
   }
 
   .to-top {
@@ -1207,7 +1214,7 @@
   }
 
   .grid-item__img {
-    border-radius: 15px; /* Скругление изображений */
+    border-radius: 10px; /* Скругление изображений */
   }
 
   .grid-item__img:nth-child(16) {
