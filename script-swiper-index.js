@@ -11,10 +11,6 @@ const swiper = new Swiper(".swiper", {
     modifier: 4 /* Множитель эффекта */,
   },
   loop: true /* Зациклить слайды */,
-  navigation: {
-    nextEl: ".swiper-button-next" /* Навигация стрелками - далее */,
-    prevEl: ".swiper-button-prev" /* Навигация стрелками - назад */,
-  },
   pagination: {
     el: ".swiper-pagination" /* Пагинация слайдов (отображение, на каком слайде находится пользователь) */,
     clickable: true /* Пагинация кликабельна (можно переходить на любой слайд по клику на точку-буллет) */,
